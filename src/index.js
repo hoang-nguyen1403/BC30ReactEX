@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Routes, Route, Navigate}  from "react-router-dom"
+import {BrowserRouter, Routes, Route}  from "react-router-dom"
 import LayoutExcercise from './LayoutExcercise/LayoutExcercise';
+import Glasses from './Glasses/Glasses'
 import Description from './MainCompent/Description';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,12 +14,8 @@ root.render(
       <Routes>
         <Route path='' element={<App />}>
           <Route path='' element={<Description/>}></Route>
-          <Route path='BTLayout' element={<LayoutExcercise></LayoutExcercise>}>
-        </Route>
-
-
-
-
+          <Route path='BTLayout' element={<LayoutExcercise></LayoutExcercise>}></Route>
+          <Route path='Glasses' element={<Glasses/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

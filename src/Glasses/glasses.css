@@ -1,0 +1,44 @@
+.glass_app{
+    background-image: url(../../public/Images/glassesImage/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.glass_app .app_header{
+    /* height: 30px; */
+    background-color: #000000;
+    opacity: 0.4;
+    padding: 20px;
+    margin: 0;
+
+}
+
+.glass_app .app_header .app_header_title{
+    text-align: center;
+    color: #fff;
+}
+
+.glass_app .app_body .left-col{
+    padding: 50px 100px;
+    /* position: relative; */
+}
+.glass_app .app_body .left-col .activeglass{
+    position: relative;
+    top: -64%;
+    left: 20%;
+    width: 60%;
+}
+.glass_app .app_body .right-col{
+    padding:  50px 100px;
+}
+
+.glass_app .glasses_selection .glass-item .glass-img{
+    width: 100%;
+    border: 1px solid grey;
+
+}
+.glass_app .glasses_selection .glass-item .glass-img:hover{
+    background-color: red;
+}

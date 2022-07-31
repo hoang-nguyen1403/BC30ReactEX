@@ -12,7 +12,7 @@ function App() {
           <Header></Header>
         </div>
   
-        <div style={{ padding: '5px', minHeight: '80vh' }}>
+        <div style={{ minHeight: '80vh' }}>
             <Outlet></Outlet>
         </div>
         <div className="header_background">

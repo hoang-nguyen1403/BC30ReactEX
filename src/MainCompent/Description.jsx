@@ -10,6 +10,11 @@ export default class Description extends Component {
               BT Bootcamp 30
           </h3>
           <p>
+              BT2: React Glasses
+              Click  <NavLink to='/Glasses'>Here !</NavLink>
+          </p>
+          <hr />
+          <p>
               BT1: React Layout
               Click  <NavLink to='/BTLayout'>Here !</NavLink>
           </p>

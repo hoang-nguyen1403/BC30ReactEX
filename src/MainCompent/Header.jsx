@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
@@ -26,9 +26,9 @@ export default class Header extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
+                <NavLink className="nav-link" to="/Glasses">
+                  Glasses
+                </NavLink>
               </li>
               <li className="nav-item dropdown">
                 <a
