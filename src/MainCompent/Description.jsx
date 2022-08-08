@@ -6,9 +6,14 @@ export default class Description extends Component {
   render() {
     return (
       <div className="container">
-          <h3>
+        <h3>
               BT Bootcamp 30
           </h3>
+          <p>
+              BT3: React Props
+              Click  <NavLink to='/Props'>Here !</NavLink>
+          </p>
+          <hr />
           <p>
               BT2: React Glasses
               Click  <NavLink to='/Glasses'>Here !</NavLink>

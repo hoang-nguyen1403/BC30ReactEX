@@ -30,6 +30,11 @@ export default class Header extends Component {
                   Glasses
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Props">
+                 Props
+                </NavLink>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"

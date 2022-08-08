@@ -7,6 +7,7 @@ import {BrowserRouter, Routes, Route}  from "react-router-dom"
 import LayoutExcercise from './LayoutExcercise/LayoutExcercise';
 import Glasses from './Glasses/Glasses'
 import Description from './MainCompent/Description';
+import Cart from './PropsPractice/Cart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
           <Route path='' element={<Description/>}></Route>
           <Route path='BTLayout' element={<LayoutExcercise></LayoutExcercise>}></Route>
           <Route path='Glasses' element={<Glasses/>}></Route>
+          <Route path='Props' element={<Cart/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
