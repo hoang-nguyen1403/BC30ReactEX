@@ -1,4 +1,11 @@
-<<<<<<< HEAD
+npm i to install all dependencies
+BC30 ReactJS Excercises.
+Content: 
+-Excercise 1: React Layout
+-Excercise 2: React State
+-Excercise 3: React Shoping Cart
+
+
 # ReactExcercise_BC30
 =======
 # Getting Started with Create React App
