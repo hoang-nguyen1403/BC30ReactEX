@@ -58,14 +58,13 @@ export default class Cart extends Component {
       hinhAnh: "./Images/img/vsphone.jpg",
     },
     productInCart: [
-      {
-        maSP: 1,
-        tenSP: "VinSmart Live",
-        giaBan: 5700000,
-        hinhAnh: "./Images/img/vsphone.jpg",
-        soLuong: 1,
-      },
+      // {maSP: 1,
+      // tenSP: "VinSmart Live",
+      // giaBan: 5700000,
+      // hinhAnh: "./Images/img/vsphone.jpg",
+      // soLuong: 1}
     ],
+    cartIcon : "fa-solid fa-cart-shopping"
   };
   getDetailedProduct = (productData) => {
     this.setState({ detailProduct: productData });
@@ -87,13 +86,38 @@ export default class Cart extends Component {
     }
 
     this.setState({ productInCart: currentProduct });
+    console.log(this.state.cartIcon)
+    if (this.state.cartIcon === "fa-solid fa-cart-shopping"){
+    
+      this.setState({cartIcon:"fas fa-cart-arrow-down"})
+    } 
+
   };
 
   deleteProductFromCart = (productId) => {
     let currentProduct = [...this.state.productInCart];
     currentProduct = currentProduct.filter((p) => p.maSP !== productId);
     this.setState({ productInCart: currentProduct });
+    if (!this.state.productInCart.length){
+      let cartIcon = this.state.cartIcon
+      if (cartIcon === "fa-solid fa-cart-shopping"){
+        this.setState({cartIcon:"fa-solid fa-cart-shopping"})
+      } 
+    }
   };
+
+  changeQuantity = (productId, isIncreased=true) => {
+    let currentProduct = [...this.state.productInCart];
+    let index = currentProduct.findIndex(product=>product.maSP === productId)
+    if (isIncreased){
+      currentProduct[index].soLuong += 1;
+    }else{
+      if (currentProduct[index].soLuong  >1){
+        currentProduct[index].soLuong -= 1;
+      }
+    }
+    this.setState({productInCart: currentProduct})
+  }
 
   render() {
     let productQuantity = this.state.productInCart.reduce(
@@ -108,14 +132,14 @@ export default class Cart extends Component {
         <ModalCart
           productInCart={this.state.productInCart}
           deleteProductFromCart={this.deleteProductFromCart}
+          changeQuantity = {this.changeQuantity}
         ></ModalCart>
         <div className="text-end m-2">
           <span
             className="text-danger "
             data-bs-toggle="modal"
             data-bs-target="#modelId"
-            style={{ cursor: "pointer", fontSize: "18px", fontWeight: "bold" }}
-          >
+            style={{ cursor: "pointer", fontSize: "18px", fontWeight: "bold" }}> <i class={this.state.cartIcon}></i>
             Giỏ hàng ({productQuantity})
           </span>
         </div>

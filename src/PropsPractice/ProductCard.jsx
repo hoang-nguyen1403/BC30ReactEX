@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-
+import "./productCard.css"
 export default class ProductCard extends Component {
   render() {
       const {cardData, getDetailedProduct, addProductToCart} = this.props;
     return (
-      <div className="card text-white bg-dark">
-        <img className="card-img-top" src={cardData.hinhAnh} alt="Title" height="350px" width="200px"/>
+      <div className="card text-white bg-dark detail_card">
+        <img className="card-img-top card_img" src={cardData.hinhAnh} alt="Title" height="350px" width="200px"/>
         <div className="card-body">
           <h4 className="card-title">{cardData.tenSP}</h4>
           <button className="btn btn-danger" onClick={()=>{

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class ModalCart extends Component {
   render() {
-    let { productInCart, deleteProductFromCart } = this.props;
+    let { productInCart, deleteProductFromCart, changeQuantity } = this.props;
     return (
       <div className="row">
         {/* Modal */}
@@ -51,19 +51,63 @@ export default class ModalCart extends Component {
                             <img src={data.hinhAnh} alt="" width="50px" />
                           </td>
                           <td>{data.tenSP}</td>
-                          <td>{data.soLuong}</td>
-                          <td>{data.giaBan}</td>
                           <td>
-                            <button className="btn btn-danger" onClick={
-                                ()=>{
-                                    deleteProductFromCart(data.maSP)
-                                }
-                            }>Xoá</button>
+                            <div
+                              style={{
+                                display: "flex",
+                                textAlign: "center",
+                                justifyContent: "start",
+                              }}
+                            >
+                              <button
+                                className="btn btn-danger"
+                                onClick={() => {
+                                  changeQuantity(data.maSP);
+                                }}
+                              >
+                                {" "}
+                                +{" "}
+                              </button>
+
+                              <p className="m-0 p-2">{data.soLuong}</p>
+
+                              <button
+                                className="btn btn-danger"
+                                onClick={() => {
+                                  changeQuantity(data.maSP, false);
+                                }}
+                              >
+                                {" "}
+                                -{" "}
+                              </button>
+                            </div>
+                          </td>
+                          <td>{data.giaBan * data.soLuong}</td>
+                          <td>
+                            <button
+                              className="btn btn-danger"
+                              onClick={() => {
+                                deleteProductFromCart(data.maSP);
+                              }}
+                            >
+                              Xoá
+                            </button>
                           </td>
                         </tr>
                       );
                     })}
                   </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colSpan="4"></td>
+                      <td style={{ fontWeight: 700 }}>Tổng tiền :</td>
+                      <td style={{fontWeight:700}}>
+                        {productInCart.reduce((total, product, index) => {
+                          return product.giaBan * product.soLuong;
+                        }, 0)}
+                      </td>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
               <div className="modal-footer">

@@ -1,0 +1,16 @@
+.detail_card {
+  overflow: hidden;
+  transition: all 0.6s linear;
+}
+
+.detail_card:hover {
+  transform: translateY(-10px);
+}
+
+.detail_card .card_img {
+  transition: all 1s linear;
+}
+
+.detail_card .card_img:hover {
+  transform: scale(1.05);
+}
