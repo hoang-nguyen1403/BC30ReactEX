@@ -10,6 +10,11 @@ export default class Description extends Component {
               BT Bootcamp 30
           </h3>
           <p>
+              BT4: Form Validation
+              Click  <NavLink to='/formValidation'>Here !</NavLink>
+          </p>
+          <hr />
+          <p>
               BT3: React Props
               Click  <NavLink to='/Props'>Here !</NavLink>
           </p>

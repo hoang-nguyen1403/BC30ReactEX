@@ -35,6 +35,11 @@ export default class Header extends Component {
                  Props
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/formValidation">
+                 Form Validation
+                </NavLink>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"

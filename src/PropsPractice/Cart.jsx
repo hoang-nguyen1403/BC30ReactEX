@@ -139,7 +139,8 @@ export default class Cart extends Component {
             className="text-danger "
             data-bs-toggle="modal"
             data-bs-target="#modelId"
-            style={{ cursor: "pointer", fontSize: "18px", fontWeight: "bold" }}> <i class={this.state.cartIcon}></i>
+            style={{ cursor: "pointer", fontSize: "18px", fontWeight: "bold" }}>
+               <i className="fas fa-cart-arrow-down"></i>
             Giỏ hàng ({productQuantity})
           </span>
         </div>
