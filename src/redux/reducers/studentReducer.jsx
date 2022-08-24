@@ -1,24 +1,27 @@
+const students =  [
+  {
+    id: "1",
+    fullName: "Nguyen Van A",
+    email: "NguyenVanA@gmail.com",
+    phoneNumber: "0903525878",
+  },
+  {
+    id: "2",
+    fullName: "Nguyen Van B",
+    email: "NguyenVanB@gmail.com",
+    phoneNumber: "0903527876",
+  },
+  {
+    id: "3",
+    fullName: "Nguyen Van C",
+    email: "NguyenVanC@gmail.com",
+    phoneNumber: "0903515879",
+  },
+]
+
+
 const initialState = {
-  students: [
-    {
-      id: 1,
-      fullName: "Nguyen Van A",
-      email: "NguyenVanA@gmail.com",
-      phoneNumber: "0903525878",
-    },
-    {
-      id: 2,
-      fullName: "Nguyen Van B",
-      email: "NguyenVanB@gmail.com",
-      phoneNumber: "0903527876",
-    },
-    {
-      id: 3,
-      fullName: "Nguyen Van C",
-      email: "NguyenVanC@gmail.com",
-      phoneNumber: "0903515879",
-    },
-  ],
+  students: students,
   studentTemplate: {
     id: "",
     fullName: "",
@@ -80,6 +83,18 @@ export const studentReducer = (state = initialState, action) => {
       let currentStudents = [...state.students];
       currentStudents.push(newStudent)
       state.students = currentStudents;
+      return { ...state };
+    }
+    case "SEARCH_CHANGE_INPUT": {
+      let { studentID } = action;
+      let currentStudents = [...state.students];
+      if (!studentID) {
+        state.students = students
+      } else{
+        currentStudents = currentStudents.filter(p=> p.id.includes(studentID))
+        state.students = currentStudents;
+      }
+      
       return { ...state };
     }
     default:
