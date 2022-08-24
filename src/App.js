@@ -12,9 +12,10 @@ function App() {
           <Header></Header>
         </div>
   
-        <div style={{ minHeight: '80vh' }}>
+        <div className="body-app" style={{ minHeight: '80vh' }}>
             <Outlet></Outlet>
         </div>
+        {/* <Outlet></Outlet> */}
         <div className="header_background">
           <Footer></Footer>
         </div>

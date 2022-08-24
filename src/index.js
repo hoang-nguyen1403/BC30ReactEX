@@ -9,10 +9,13 @@ import Glasses from "./Glasses/Glasses";
 import Description from "./MainCompent/Description";
 import Cart from "./PropsPractice/Cart";
 import FormValidation from "./ValidateForm/FormValidation";
+import MovieBooking from "./pages/MovieBooking/MovieBooking";
 
 // redux setup
 import { Provider } from "react-redux";
 import { store } from "./redux/configStore";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,6 +31,7 @@ root.render(
           <Route path="Glasses" element={<Glasses />}></Route>
           <Route path="Props" element={<Cart />}></Route>
           <Route path="formValidation" element={<FormValidation />}></Route>
+          <Route path="movieBooking" element={<MovieBooking />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -40,6 +40,11 @@ export default class Header extends Component {
                  Form Validation
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/movieBooking">
+                  Movie Booking
+                </NavLink>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
