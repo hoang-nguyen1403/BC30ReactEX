@@ -1,40 +1,66 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class BookingChair extends Component {
-  
+  handleBooking = (e, chairCode)=>{
+    console.log("chairCode ", chairCode)
+    const action = {
+      type: "BOOKING_CANCEL_CHAIR",
+      payload: { chairCode: chairCode },
+    }
+    this.props.dispatch(action);
+    // alert(`Chair ${chairCode} is booked by you`);
+  }
   render() {
-    let {bookingInfo} = this.props.bookingMovieReducer
-    let firstRow = bookingInfo.filter(p=> p.hang ==="")[0]['danhSachGhe']
-    let chairs = bookingInfo.filter(p=> p.hang !=="")
+    let { bookingInfo, bookingTicket } = this.props.bookingMovieReducer;
+    let firstRow = bookingInfo.filter((p) => p.hang === "")[0]["danhSachGhe"];
+    let chairs = bookingInfo.filter((p) => p.hang !== "");
 
-    console.log(chairs)
+    console.log(chairs);
     return (
-      <table style={{width:"100%"}}>
+      <table style={{ width: "100%" }}>
         <thead>
-          <tr>  
+          <tr>
             <th></th>
-            {firstRow.map((prop, index)=>{
-              return <th className='firstChar' key={index}>{prop.soGhe}</th>
+            {firstRow.map((prop, index) => {
+              return (
+                <th className="firstChar" key={index}>
+                  {prop.soGhe}
+                </th>
+              );
             })}
           </tr>
         </thead>
         <tbody>
-          {chairs.map((prop, index)=>{
-            return <tr key={index}>
+          {chairs.map((prop, index) => {
+            return (
+              <tr key={index}>
                 <td className="firstChar"> {prop.hang} </td>
-                {prop.danhSachGhe.map((p, i)=>{
-                  return <td  key={i}><button className='ghe'>{p.soGhe}</button></td>
+                {prop.danhSachGhe.map((p, i) => {
+                  let style = p.daDat ? "ghe gheDuocChon" : "ghe"
+                  if (bookingTicket.find(pro => pro.soGhe === p.soGhe)){
+                    style = "ghe gheDangChon"
+                  }
+                  return (
+                    <td key={i}>
+                      <button 
+                      className={ style} 
+                      onClick={(e)=>{
+                        this.handleBooking(e, p.soGhe)
+                      }} >
+                        {p.soGhe}
+                      </button>
+                    </td>
+                  );
                 })}
               </tr>
+            );
           })}
         </tbody>
-        
       </table>
-    )
+    );
   }
 }
-
 
 const mapStateToProps = (state) => ({
   bookingMovieReducer: state.bookingMovieReducer,

@@ -185,11 +185,29 @@ const bookingInfo = [
 
 const initialState = {
     bookingInfo: bookingInfo,
+    bookingTicket: []
 
 }
 
 export const bookingMovieReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "BOOKING_CANCEL_CHAIR":{
+      let { chairCode } = action.payload;
+      let rowName = chairCode[0]
+      let bookingInfo = [...state.bookingInfo]
+      let bookingTicket = [...state.bookingTicket]
+      let currentRow = bookingInfo.find(p => p.hang === rowName);
+      let bookedChairInfo = currentRow.danhSachGhe.find(p => p.soGhe === chairCode);
+      let bookingTicketInfo = bookingTicket.find(p => p.soGhe === chairCode);
+      if (!bookingTicketInfo){
+        bookingTicket.push({...bookedChairInfo})
+      }else{
+        bookingTicket = bookingTicket.filter((p) => p.soGhe !== chairCode)
+      }
+      state.bookingInfo = bookingInfo
+      state.bookingTicket = bookingTicket
+      return {...state}
+    } 
   default:
     return state
   }

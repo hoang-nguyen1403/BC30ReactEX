@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-
-export default class TicketTable extends Component {
+import { connect } from "react-redux";
+class TicketTable extends Component {
   render() {
+    let { bookingInfo, bookingTicket } = this.props.bookingMovieReducer;
     return (
       <div>
         <h3 className="text-light">Danh Sáchh Ghế Bạn Chọn</h3>
@@ -31,7 +32,40 @@ export default class TicketTable extends Component {
             </div>
           </div>
         </div>
+        <table className="table text-light mt-5">
+          <thead>
+            <tr>
+              <th>Số Ghế</th>
+              <th>Giá</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              bookingTicket.map((prop, index)=>{
+                return <tr key={index}>
+                  <td>{prop.soGhe}</td>
+                  <td>{prop.gia}</td>
+                  <td><button className="btn btn-danger">Xoá</button></td>
+                </tr>
+              })
+            }
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td>Tổng Tiền</td>
+              <td>0</td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  bookingMovieReducer: state.bookingMovieReducer,
+});
+
+export default connect(mapStateToProps)(TicketTable);
