@@ -12,12 +12,12 @@ export default class Description extends Component {
           </h3>
           <p>
               BT5: Movie Booking
-              Click  <NavLink to='/formValidation'>Here !</NavLink>
+              Click  <NavLink to='/movieBooking'>Here !</NavLink>
           </p>
           <hr />
           <p>
               BT4: Form Validation
-              Click  <NavLink to='/movieBooking'>Here !</NavLink>
+              Click  <NavLink to='/formValidation'>Here !</NavLink>
           </p>
           <hr />
           <p>
