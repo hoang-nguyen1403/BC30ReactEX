@@ -3,13 +3,11 @@ import { connect } from "react-redux";
 
 class BookingChair extends Component {
   handleBooking = (e, chairCode)=>{
-    console.log("chairCode ", chairCode)
     const action = {
       type: "BOOKING_CANCEL_CHAIR",
       payload: { chairCode: chairCode },
     }
     this.props.dispatch(action);
-    // alert(`Chair ${chairCode} is booked by you`);
   }
   render() {
     let { bookingInfo, bookingTicket } = this.props.bookingMovieReducer;

@@ -46,7 +46,19 @@ class TicketTable extends Component {
                 return <tr key={index}>
                   <td>{prop.soGhe}</td>
                   <td>{prop.gia}</td>
-                  <td><button className="btn btn-danger">Xoá</button></td>
+                  <td><button className="btn btn-danger" 
+                  onClick={()=>{
+                    const action = {
+                      type: "DELETE_CHAIR",
+                      payload: { chairCode: prop.soGhe },
+                      
+                    }
+                    if(window.confirm("Are you sure to delete this chair ?")){
+                      this.props.dispatch(action);
+                    }
+                    
+                  }}
+                  >Xoá</button></td>
                 </tr>
               })
             }
@@ -55,7 +67,12 @@ class TicketTable extends Component {
             <tr>
               <td></td>
               <td>Tổng Tiền</td>
-              <td>0</td>
+              <td>{
+                    bookingTicket.reduce(
+                        (quantity, chair, index) => {
+                          return quantity +chair.gia;
+                        },0)
+                }</td>
             </tr>
           </tfoot>
         </table>

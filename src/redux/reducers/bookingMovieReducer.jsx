@@ -208,6 +208,13 @@ export const bookingMovieReducer = (state = initialState, action) => {
       state.bookingTicket = bookingTicket
       return {...state}
     } 
+    case "DELETE_CHAIR":{
+      let { chairCode } = action.payload;
+      let bookingTicket = [...state.bookingTicket]
+      bookingTicket = bookingTicket.filter((p) => p.soGhe !== chairCode)
+      state.bookingTicket = bookingTicket
+      return {...state}
+    }
   default:
     return state
   }
